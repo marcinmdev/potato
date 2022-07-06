@@ -16,10 +16,10 @@ class MainControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/main');
+        $crawler = $client->request('GET', '/login');
 
         // Validate a successful response and some content
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Hello');
+        self::assertSelectorTextContains('button', 'Login');
     }
 }

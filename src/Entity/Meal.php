@@ -15,6 +15,9 @@ class Meal
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[ORM\Column(type: 'text')]
+    private ?string $name;
+
     #[ORM\ManyToMany(targetEntity: "Ingredient")]
     private Collection $ingredients;
 
@@ -48,6 +51,18 @@ class Meal
     public function removeIngredient(Ingredient $ingredient): self
     {
         $this->ingredients->removeElement($ingredient);
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
