@@ -66,7 +66,7 @@ class MealController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_meal_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_meal_delete', methods: ['DELETE'])]
     public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$meal->getId(), (string) $request->request->get('_token'))) {
