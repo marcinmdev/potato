@@ -3,7 +3,6 @@
 namespace App\Tests\Controller;
 
 use App\Repository\UserRepository;
-use App\Story\IngredientStory;
 use App\Story\MealStory;
 use App\Story\UserAccountStory;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -41,7 +40,7 @@ class MealControllerTest extends WebTestCase
 
         $client->submitForm('Save', [
             'meal[name]' => 'testMeal',
-            'meal[ingredients]' => [1,2],
+            'meal[ingredients]' => [1, 2],
         ]);
 
         $this->assertResponseStatusCodeSame(Response::HTTP_SEE_OTHER);
@@ -72,7 +71,7 @@ class MealControllerTest extends WebTestCase
 
         $client->submitForm('Update', [
             'meal[name]' => 'testMeal2',
-            'meal[ingredients]' => [2,3],
+            'meal[ingredients]' => [2, 3],
         ]);
 
         $this->assertResponseStatusCodeSame(Response::HTTP_SEE_OTHER);
