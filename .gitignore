@@ -1,4 +1,5 @@
-
+/docker/data
+/.idea
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -8,4 +9,8 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-/docker/data
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
