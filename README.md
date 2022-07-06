@@ -30,7 +30,7 @@ docker exec -w /var/www/potato -it potato-node npm install
 
 ```shell
 # Commands below must be run in project directory
-wget -O ./docker/data/home/www-data/.zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+wget -O ./docker/data/home/${USER}/.zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 ```
 
 ```shell
