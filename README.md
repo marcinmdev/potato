@@ -1,7 +1,8 @@
 🥔
-
+#### DESCRIPTION
+Example Symfony project with database, users, tested and simple code.
 #### TOOLS
-* https://archlinux.org/ (btw), can be happily ran using virtualization (Hyper-V my preferred choice atm)
+* https://archlinux.org/ (btw), can be happily ran using virtualization (Hyper-V is my preferred choice atm)
 * https://github.com/junegunn/fzf
 * https://docs.docker.com/compose/cli-command/
 * https://grml.org/zsh/
