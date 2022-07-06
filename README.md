@@ -59,5 +59,4 @@ dxp
 # use <ctr-r> and thanks to fzf we have access to very useful history browser
 # code check
 composer code-validator
-#
 ```
