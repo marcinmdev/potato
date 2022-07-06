@@ -57,8 +57,7 @@ dxpt
 dxp
 # grml zsh shell inside docker php
 # use <ctr-r> and thanks to fzf we have access to very useful history browser
-
-#code check
+# code check
 composer code-validator
 #
 ```
