@@ -5,6 +5,7 @@ namespace App\Tests\Controller;
 use App\Repository\UserRepository;
 use App\Story\UserAccountStory;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @covers \App\Controller\MainController
@@ -24,6 +25,8 @@ class MainControllerTest extends WebTestCase
         self::assertSelectorTextContains('button', 'Login');
 
         $userRepository = static::getContainer()->get(UserRepository::class);
+
+        /** @var UserInterface $testUser */
         $testUser = $userRepository->findOneByEmail(UserAccountStory::USER_NAME);
 
         $client->loginUser($testUser);

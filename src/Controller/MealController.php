@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Entity\Meal;
 use App\Form\MealType;
 use App\Repository\MealRepository;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,10 +21,6 @@ class MealController extends AbstractController
         ]);
     }
 
-    /**
-     * @throws OptimisticLockException
-     * @throws ORMException
-     */
     #[Route('/new', name: 'app_meal_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MealRepository $mealRepository): Response
     {
@@ -54,10 +48,6 @@ class MealController extends AbstractController
         ]);
     }
 
-    /**
-     * @throws OptimisticLockException
-     * @throws ORMException
-     */
     #[Route('/{id}/edit', name: 'app_meal_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Meal $meal, MealRepository $mealRepository): Response
     {
@@ -76,10 +66,6 @@ class MealController extends AbstractController
         ]);
     }
 
-    /**
-     * @throws OptimisticLockException
-     * @throws ORMException
-     */
     #[Route('/{id}', name: 'app_meal_delete', methods: ['POST'])]
     public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
     {

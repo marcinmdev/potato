@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Entity\Ingredient;
 use App\Form\IngredientType;
 use App\Repository\IngredientRepository;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,10 +21,6 @@ class IngredientController extends AbstractController
         ]);
     }
 
-    /**
-     * @throws OptimisticLockException
-     * @throws ORMException
-     */
     #[Route('/new', name: 'app_ingredient_new', methods: ['GET', 'POST'])]
     public function new(Request $request, IngredientRepository $ingredientRepository): Response
     {
@@ -54,10 +48,6 @@ class IngredientController extends AbstractController
         ]);
     }
 
-    /**
-     * @throws OptimisticLockException
-     * @throws ORMException
-     */
     #[Route('/{id}/edit', name: 'app_ingredient_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Ingredient $ingredient, IngredientRepository $ingredientRepository): Response
     {
@@ -76,10 +66,6 @@ class IngredientController extends AbstractController
         ]);
     }
 
-    /**
-     * @throws OptimisticLockException
-     * @throws ORMException
-     */
     #[Route('/{id}', name: 'app_ingredient_delete', methods: ['DELETE'])]
     public function delete(Request $request, Ingredient $ingredient, IngredientRepository $ingredientRepository): Response
     {
