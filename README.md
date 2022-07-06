@@ -37,6 +37,8 @@ cp ./docker/.zshrc.local to ./docker/data/home/${USER}/.zshrc.local
 ```shell
 # While being in project dir: running below command should be automated, no need to repeat it every system boot
 docker compose start
+# test
+dxpt
 # lets go into php CLI with our nifty shell command which we set up before
 dxp
 #grml zsh shell inside docker php
@@ -45,7 +47,6 @@ dxp
 #code check
 composer code-validator
 
-#test - run outside docker
-dxpt
+
 #
 ```

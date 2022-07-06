@@ -46,6 +46,14 @@ class IngredientController extends AbstractController
         ]);
     }
 
+    #[Route('/{id}', name: 'app_ingredient_show', methods: ['GET'])]
+    public function show(Ingredient $ingredient): Response
+    {
+        return $this->render('ingredient/show.html.twig', [
+            'ingredient' => $ingredient,
+        ]);
+    }
+
     /**
      * @throws OptimisticLockException
      * @throws ORMException

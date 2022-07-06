@@ -18,7 +18,7 @@ class Meal
     #[ORM\Column(type: 'text')]
     private ?string $name;
 
-    #[ORM\ManyToMany(targetEntity: 'Ingredient')]
+    #[ORM\ManyToMany(targetEntity: 'Ingredient', cascade: ['persist'])]
     private Collection $ingredients;
 
     public function __construct()
