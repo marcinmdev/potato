@@ -8,16 +8,21 @@ Example Symfony project with database, users, tested and simple code.
 * https://grml.org/zsh/
 
 #### OPINIONATED SETUP
+
 ```shell
-#copy contents to ~/bin/dxp ("docker exec private" abbreviation)
-#remember to set executable bit (chmod+x)
 #!/usr/bin/env zsh
+# Copy this to ~/bin/dxp ("docker exec project" abbreviation). 
+#Remember to set executable bit (chmod+x):
 projectName=$(basename "$(pwd)")
 docker exec -w /var/www/"$projectName" -it "$projectName"-php /bin/zsh
----
+```
+
+```shell
 # Commands below must be run in project directory
 wget -O ./docker/data/home/www-data/.zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
----
+```
+
+```shell
 #copy contents to ./docker/data/home/www-data/.zshrc.local
 alias ll='LANG=C ls -lah --color --group-directories-first'
 alias sf='php bin/console'
@@ -44,13 +49,12 @@ if [[ -f ${FZF_KEYBINDINGS_FILE} ]]; then
     )
 fi
 
-##prompt
 zstyle ':prompt:grml:left:setup' items time user at host path vcs percent
 ```
 
 #### WORKFLOW
 ```shell
-# running below command should be automated, no need to repeat it every system boot
+# While being in project dir: running below command should be automated, no need to repeat it every system boot
 docker compose start
 # lets go into php CLI with our nifty shell command which we set up before
 dxp
