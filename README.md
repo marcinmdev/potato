@@ -1,6 +1,6 @@
 🥔
 ## DESCRIPTION
-Example Symfony project with database, users, tested and simple code.
+Example Symfony project with tested and simple code.
 
 ## REQUIREMENTS
 ```shell
@@ -18,7 +18,7 @@ export GID=$(id -g)
 #### TOOLS
 * https://archlinux.org/ (btw)
 * https://github.com/junegunn/fzf
-* https://docs.docker.com/compose/cli-command/
+* https://docs.docker.com/compose/
 * https://grml.org/zsh/
 
 ```shell
