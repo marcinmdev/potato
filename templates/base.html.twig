@@ -8,55 +8,73 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
+    <script src="{{ asset('build/main.js') }}"></script>
 </head>
 <body>
 {% block body %}
-    <div class="columns m-1">
-        <nav class="column is-2">
-            {% block sidebar %}
-                <aside class="menu">
-                    <p class="menu-label">
-                        General
-                    </p>
-                    <ul class="menu-list">
-                        <li><a href="{{ path('main') }}">Home</a></li>
-                        <li><a>Customers</a></li>
-                    </ul>
-                    <p class="menu-label">
-                        Administration
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Team Settings</a></li>
-                        <li>
-                            <a class="is-active">Manage Your Team</a>
-                            <ul>
-                                <li><a>Members</a></li>
-                                <li><a>Plugins</a></li>
-                                <li><a>Add a member</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p class="menu-label">
-                        Transactions
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Payments</a></li>
-                        <li><a>Transfers</a></li>
-                        <li><a>Balance</a></li>
-                    </ul>
-                </aside>
-            {% endblock %}
-        </nav>
-        <div class="column">
-            <div id="content">
-                {% block content %}{% endblock %}
+    {% block nav %}
+        <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{{ path('main') }}">
+                    POTATO 🥔
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                   data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        <span class="icon-text">
+                          <span class="icon">
+                            <i class="fas fa-carrot"></i>
+                          </span>
+                          <span>Ingredients</span>
+                        </span>
+                    </a>
+                    <a class="navbar-item">
+                        <span class="icon-text">
+                          <span class="icon">
+                            <i class="fas fa-bowl-rice"></i>
+                          </span>
+                          <span>Meals</span>
+                        </span>
+                    </a>
+                    <a class="navbar-item">
+                        <span class="icon-text">
+                          <span class="icon">
+                            <i class="fas fa-calendar"></i>
+                          </span>
+                          <span>Calendar</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light" href="{{ path('logout') }}">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+    <section class="section">
+        <div class="container is-mobile">
+            {% block content %}{% endblock %}
         </div>
-    </div>
+    </section>
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                Potato
+                Potato 2022
             </p>
         </div>
     </footer>

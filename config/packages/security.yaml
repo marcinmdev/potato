@@ -34,7 +34,7 @@ security:
                 default_target_path: main
             remember_me:
                 secret:   '%kernel.secret%' # required
-                lifetime: 604800 # 1 week in seconds
+                lifetime: 2419200 # 4 weeks in seconds
             logout:
                 path: logout
     # Easy way to control access for large sections of your site
