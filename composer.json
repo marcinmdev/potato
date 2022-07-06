@@ -18,11 +18,29 @@
         "symfony/runtime": "6.0.*",
         "symfony/yaml": "6.0.*"
     },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^1.6",
+        "phpstan/phpstan-doctrine": "^1.3",
+        "phpstan/phpstan-phpunit": "^1.1",
+        "phpstan/phpstan-symfony": "^1.1",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "6.0.*",
+        "symfony/css-selector": "6.0.*",
+        "symfony/maker-bundle": "^1.40",
+        "symfony/phpunit-bridge": "^6.0",
+        "symfony/stopwatch": "6.0.*",
+        "symfony/web-profiler-bundle": "6.0.*",
+        "zenstruck/foundry": "^1.18"
+    },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "phpstan/extension-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -58,6 +76,22 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "cs-fix": "./vendor/bin/php-cs-fixer fix",
+        "cs-check": "./vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no",
+        "phpunit": "./vendor/bin/phpunit",
+        "validate-schema": "@php bin/console doctrine:schema:validate",
+        "phpstan-main": "phpstan analyse -c phpstan.neon src",
+        "phpstan-tests": "phpstan analyse -c phpstan-tests.neon tests",
+        "phpstan": [
+            "@phpstan-main",
+            "@phpstan-tests"
+        ],
+        "code-inspection": [
+            "@cs-check",
+            "@phpstan",
+            "@validate-schema",
+            "@phpunit"
         ]
     },
     "conflict": {
@@ -69,14 +103,5 @@
             "require": "6.0.*",
             "docker": true
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "symfony/browser-kit": "6.0.*",
-        "symfony/css-selector": "6.0.*",
-        "symfony/maker-bundle": "^1.40",
-        "symfony/phpunit-bridge": "^6.0",
-        "symfony/stopwatch": "6.0.*",
-        "symfony/web-profiler-bundle": "6.0.*"
     }
 }
