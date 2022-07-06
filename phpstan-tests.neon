@@ -1,7 +1,7 @@
 parameters:
     treatPhpDocTypesAsCertain: false
     symfony:
-        container_xml_path: var/cache/test/App_KernelDevDebugContainer.xml
+        container_xml_path: var/cache/test/App_KernelTestDebugContainer.xml
         console_application_loader: phpstan/console-loader.php
     scanDirectories:
         - var/cache/dev/Symfony/Config
