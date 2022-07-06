@@ -6,7 +6,7 @@ ARG GID
 ARG USER
 
 RUN apk add --update --no-cache $PHPIZE_DEPS \
-        git wget zsh zsh-vcs fzf fzf-zsh-completion openssh-client-default \
+        git wget zsh zsh-vcs fzf fzf-zsh-plugin openssh-client-default \
         libpq-dev icu-dev
 
 RUN deluser www-data

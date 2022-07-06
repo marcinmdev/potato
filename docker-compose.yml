@@ -12,7 +12,7 @@ services:
         - ./docker/http/certs:/etc/ssl/certs
     networks:
       static-network:
-        ipv4_address: 172.20.128.1
+        ipv4_address: 172.13.128.1
   php:
     container_name: potato-php
     hostname: potato-php
@@ -35,7 +35,7 @@ services:
         - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
     networks:
       static-network:
-        ipv4_address: 172.20.128.2
+        ipv4_address: 172.13.128.2
   db:
     container_name: potato-db
     image: postgres:14-alpine
@@ -47,7 +47,7 @@ services:
        - ./docker/data/db:/var/lib/postgresql/data:rw
     networks:
       static-network:
-        ipv4_address: 172.20.128.3
+        ipv4_address: 172.13.128.3
   node:
     container_name: potato-node
     image: node:current-alpine
@@ -58,4 +58,4 @@ networks:
   static-network:
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.13.0.0/16

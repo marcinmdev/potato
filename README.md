@@ -17,7 +17,7 @@ export GID=$(id -g)
 #### OPINIONATED SETUP
 
 ```shell
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Copy this to ~/bin/dxp ("docker exec project" abbreviation). 
 #Remember to set executable bit (chmod+x):
 projectName=$(basename "$(pwd)")
@@ -25,11 +25,21 @@ docker exec -w /var/www/"$projectName" -it "$projectName"-php /bin/zsh
 ```
 
 ```shell
+#!/usr/bin/env bash
+# Copy this to ~/bin/dxpt ("docker exec project test" abbreviation). 
+#Remember to set executable bit (chmod+x):
+projectName=$(basename "$(pwd)")
+docker exec -w /var/www/"$projectName" -t "$projectName"-php bin/phpunit $@
+```
+
+```shell
 docker compose run -w /var/www/potato node npm install
+docker compose run -w /var/www/potato node npm run build
 ```
 
 ```shell
 # Commands below must be run in project directory
+mkdir -p docker/data/home/${USER}
 wget -O ./docker/data/home/${USER}/.zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 ```
 
