@@ -205,6 +205,9 @@
     "psr/log": {
         "version": "3.0.0"
     },
+    "roave/security-advisories": {
+        "version": "dev-latest"
+    },
     "sebastian/cli-parser": {
         "version": "1.0.1"
     },
@@ -252,6 +255,9 @@
     },
     "sebastian/version": {
         "version": "3.0.2"
+    },
+    "symfony/asset": {
+        "version": "v6.0.7"
     },
     "symfony/browser-kit": {
         "version": "v6.0.3"
