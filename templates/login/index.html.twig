@@ -1,24 +1,54 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello LoginController!{% endblock %}
-
+{% block title %}Potato Login{% endblock %}
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                        <div class="columns is-centered is-size-1">🥔</div>
+                        {% if error %}
+                            <div class="notification is-danger is-light">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+                        <form action="{{ path('login') }}" class="box" method="post">
+                            <div class="field">
+                                <label for="username" class="label">Email</label>
+                                <div class="control has-icons-left">
+                                    <input type="email" id="username" name="_username" value="{{ last_username }}"
+                                           class="input" required>
+                                    <span class="icon is-small is-left">
+                  <i class="fas fa-solid fa-envelope"></i>
+                </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="password" class="label">Password</label>
+                                <div class="control has-icons-left">
+                                    <input type="password" id="password" name="_password" class="input" required>
+                                    <span class="icon is-small is-left">
+                  <i class="fas fa-solid fa-lock"></i>
+                </span>
+                                </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            </div>
+                            <div class="field">
+                                <label for="" class="checkbox">
+                                    <input type="checkbox">
+                                    Remember me
+                                </label>
+                            </div>
+                            <div class="field">
+                                <button class="button is-success">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-        <label>
-            <input type="checkbox" name="_remember_me" checked/>
-            Keep me logged in
-        </label>
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-        <button type="submit">login</button>
-    </form>
 {% endblock %}
