@@ -25,7 +25,7 @@ docker exec -w /var/www/"$projectName" -it "$projectName"-php /bin/zsh
 ```
 
 ```shell
-docker exec -w /var/www/potato -it potato-node npm install
+docker compose run -w /var/www/potato node npm install
 ```
 
 ```shell

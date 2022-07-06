@@ -53,11 +53,7 @@ services:
     image: node:current-alpine
     volumes:
       - .:/var/www/potato
-    tty: true
     user: ${UID}:${GID}
-    networks:
-      static-network:
-        ipv4_address: 172.20.128.4
 networks:
   static-network:
     ipam:
