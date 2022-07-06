@@ -13,12 +13,15 @@ class Meal
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'text')]
-    private ?string $name;
+    private string $name;
 
-    #[ORM\ManyToMany(targetEntity: 'Ingredient', cascade: ['persist'])]
+    /**
+     * @var Collection<int, Ingredient>
+     */
+    #[ORM\ManyToMany(targetEntity: Ingredient::class, cascade: ['persist'])]
     private Collection $ingredients;
 
     public function __construct()

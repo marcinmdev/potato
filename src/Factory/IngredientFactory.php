@@ -4,7 +4,6 @@ namespace App\Factory;
 
 use App\Entity\Ingredient;
 use App\Repository\IngredientRepository;
-use JetBrains\PhpStorm\ArrayShape;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -29,7 +28,9 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class IngredientFactory extends ModelFactory
 {
-    #[ArrayShape(['name' => 'string', 'price' => 'int', 'weight' => 'int'])]
+    /**
+     * @return array{name: string, price: int, weight: int}
+     */
     protected function getDefaults(): array
     {
         return [

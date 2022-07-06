@@ -4,7 +4,6 @@ namespace App\Factory;
 
 use App\Entity\Meal;
 use App\Repository\MealRepository;
-use JetBrains\PhpStorm\ArrayShape;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -29,7 +28,9 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class MealFactory extends ModelFactory
 {
-    #[ArrayShape(['name' => 'string'])]
+    /**
+     * @return array{name: string}
+     */
     protected function getDefaults(): array
     {
         return [

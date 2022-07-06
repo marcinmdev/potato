@@ -83,7 +83,7 @@ class MealController extends AbstractController
     #[Route('/{id}', name: 'app_meal_delete', methods: ['POST'])]
     public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$meal->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$meal->getId(), (string) $request->request->get('_token'))) {
             $mealRepository->remove($meal);
         }
 

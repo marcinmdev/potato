@@ -13,11 +13,14 @@ class UserAccount implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'text', unique: true)]
-    private ?string $email;
+    private string $email;
 
+    /**
+     * @var array{}
+     */
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
@@ -63,6 +66,9 @@ class UserAccount implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
+    /**
+     * @param array{} $roles
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -88,7 +94,7 @@ class UserAccount implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;

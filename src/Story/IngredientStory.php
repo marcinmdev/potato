@@ -14,6 +14,9 @@ final class IngredientStory extends Story
         }
     }
 
+    /**
+     * @return array{array{name: string, price: int, weight: int}}
+     */
     private function getIngredientData(): array
     {
         return [

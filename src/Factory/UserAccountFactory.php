@@ -4,7 +4,6 @@ namespace App\Factory;
 
 use App\Entity\UserAccount;
 use App\Repository\UserRepository;
-use JetBrains\PhpStorm\ArrayShape;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -29,7 +28,9 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class UserAccountFactory extends ModelFactory
 {
-    #[ArrayShape(['email' => 'string', 'roles' => 'array', 'password' => 'string'])]
+    /**
+     * @return array{email: string, roles: array{}, password: string}
+     */
     protected function getDefaults(): array
     {
         return [
