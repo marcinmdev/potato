@@ -1,25 +1,25 @@
 🥔
-#### DESCRIPTION
+## DESCRIPTION
 Example Symfony project with database, users, tested and simple code.
 
-#### TOOLS
-* https://archlinux.org/ (btw), can be happily ran using virtualization (Hyper-V is my preferred choice atm)
-* https://github.com/junegunn/fzf
-* https://docs.docker.com/compose/cli-command/
-* https://grml.org/zsh/
-
-#### REQUIREMENTS
+## REQUIREMENTS
 ```shell
 #.zshrc/bashrc equivalent
 export UID=$(id -u)
 export GID=$(id -g)
 ```
 
-#### OPINIONATED SETUP
+## OPINIONATED SETUP
 * copy ./docker/bin contents to ~/bin
 * dxp = docker exec project
 * dxpt = docker exec project test
 * Remember to set executable bit (chmod+x) to both files
+
+#### TOOLS
+* https://archlinux.org/ (btw)
+* https://github.com/junegunn/fzf
+* https://docs.docker.com/compose/cli-command/
+* https://grml.org/zsh/
 
 ```shell
 docker compose run -w /var/www/potato node npm install
