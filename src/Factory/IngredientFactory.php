@@ -29,12 +29,13 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class IngredientFactory extends ModelFactory
 {
-    #[ArrayShape(['name' => 'string', 'price' => 'int'])]
+    #[ArrayShape(['name' => 'string', 'price' => 'int', 'weight' => 'int'])]
     protected function getDefaults(): array
     {
         return [
             'name' => self::faker()->text(),
             'price' => self::faker()->randomNumber(),
+            'weight' => self::faker()->randomNumber(),
         ];
     }
 

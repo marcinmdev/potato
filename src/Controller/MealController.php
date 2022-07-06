@@ -36,6 +36,7 @@ class MealController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $mealRepository->add($meal);
+
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -65,6 +66,7 @@ class MealController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $mealRepository->add($meal);
+
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
         }
 

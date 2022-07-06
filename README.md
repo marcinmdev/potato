@@ -33,20 +33,32 @@ wget -O ./docker/data/home/${USER}/.zshrc https://git.grml.org/f/grml-etc-core/e
 cp ./docker/.zshrc.local to ./docker/data/home/${USER}/.zshrc.local
 ```
 
+#### TEST DB SETUP
+
+```sh
+docker exec -it potato-db /bin/bash
+su postgres
+psql -U potato
+CREATE DATABASE potato_test;
+GRANT ALL PRIVILEGES ON DATABASE potato_test to potato;
+```
+
 #### WORKFLOW
 ```shell
 # While being in project dir: running below command should be automated, no need to repeat it every system boot
 docker compose start
+# preapre regular database
+dxp-reset
+# prepare test database
+dxp-reset test
 # test
 dxpt
 # lets go into php CLI with our nifty shell command which we set up before
 dxp
-#grml zsh shell inside docker php
-#use <ctr-r> and thanks to fzf we have access to very useful history browser
+# grml zsh shell inside docker php
+# use <ctr-r> and thanks to fzf we have access to very useful history browser
 
 #code check
 composer code-validator
-
-
 #
 ```

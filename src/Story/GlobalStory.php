@@ -10,5 +10,6 @@ final class GlobalStory extends Story
     {
         UserAccountStory::load();
         IngredientStory::load();
+        MealStory::load();
     }
 }
