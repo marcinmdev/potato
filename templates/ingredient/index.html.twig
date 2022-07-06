@@ -3,13 +3,14 @@
 {% block title %}Potato Ingredient List{% endblock %}
 
 {% block content %}
-    <h1>Ingredient List</h1>
+    <h1 class="is-size-3">Ingredient List</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Weight</th>
                 <th>Price</th>
                 <th>actions</th>
             </tr>
@@ -19,9 +20,9 @@
             <tr>
                 <td>{{ ingredient.id }}</td>
                 <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.weight }}</td>
                 <td>{{ ingredient.price }}</td>
                 <td>
-                    <a href="{{ path('app_ingredient_show', {'id': ingredient.id}) }}">show</a>
                     <a href="{{ path('app_ingredient_edit', {'id': ingredient.id}) }}">edit</a>
                 </td>
             </tr>
