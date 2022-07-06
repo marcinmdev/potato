@@ -59,5 +59,5 @@ docker compose start
 # lets go into php CLI with our nifty shell command which we set up before
 dxp
 #grml zsh shell inside docker php
-#use <ctr-r> and thanks to fzf we have access to very useful auto-complete n history
+#use <ctr-r> and thanks to fzf we have access to very useful history browser
 ```
