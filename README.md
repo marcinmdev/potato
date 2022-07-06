@@ -7,6 +7,13 @@ Example Symfony project with database, users, tested and simple code.
 * https://docs.docker.com/compose/cli-command/
 * https://grml.org/zsh/
 
+#### REQUIREMENTS
+```shell
+#.zshrc/bashrc equivalent
+export UID=$(id -u)
+export GID=$(id -g)
+```
+
 #### OPINIONATED SETUP
 
 ```shell
@@ -15,6 +22,10 @@ Example Symfony project with database, users, tested and simple code.
 #Remember to set executable bit (chmod+x):
 projectName=$(basename "$(pwd)")
 docker exec -w /var/www/"$projectName" -it "$projectName"-php /bin/zsh
+```
+
+```shell
+docker exec -w /var/www/potato -it potato-node npm install
 ```
 
 ```shell

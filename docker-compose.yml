@@ -2,6 +2,7 @@ services:
   http:
     container_name: potato-http
     image: nginx:stable-alpine
+    user: ${UID}:${GID}
     ports:
         - "80:80"
         - "443:443"
@@ -16,13 +17,20 @@ services:
   php:
     container_name: potato-php
     hostname: potato-php
+    user: ${UID}:${GID}
     build:
         context: ./docker/php
         dockerfile: Dockerfile-php81
+        args:
+          - USER=$USER
+          - UID=$UID
+          - GID=$GID
     volumes:
         - .:/var/www/potato
-        - ./docker/data/home/www-data:/home/www-data
+        - ./docker/data/home/$USER:/home/$USER
         - "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK"
+        - /etc/timezone:/etc/timezone:ro
+        - /etc/localtime:/etc/localtime:ro
     working_dir: /var/www
     environment:
         - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
@@ -41,6 +49,16 @@ services:
     networks:
       static-network:
         ipv4_address: 172.20.128.3
+  node:
+    container_name: potato-node
+    image: node:current-alpine
+    volumes:
+      - .:/var/www/potato
+    tty: true
+    user: ${UID}:${GID}
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.4
 networks:
   static-network:
     ipam:

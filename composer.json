@@ -19,6 +19,7 @@
         "symfony/yaml": "6.0.*"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "friendsofphp/php-cs-fixer": "^3.8",
         "jetbrains/phpstorm-attributes": "^1.0",

@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class MainControllerTest extends WebTestCase
 {
     /**
-     * @covers \MainController::index()
+     * @covers \App\Controller\MainController::index()
      */
     public function testIndex(): void
     {
