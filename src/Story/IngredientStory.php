@@ -8,13 +8,12 @@ final class IngredientStory extends Story
 {
     public function build(): void
     {
-
     }
 
     private function getIngredientData(): array
     {
         return [
-            ['name' => 'potato', 'price' => 2000]
+            ['name' => 'potato', 'price' => 2000],
         ];
     }
 }
