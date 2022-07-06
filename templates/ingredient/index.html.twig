@@ -23,6 +23,7 @@
                 <td>{{ ingredient.weight }}</td>
                 <td>{{ ingredient.price }}</td>
                 <td>
+                    <a href="{{ path('app_ingredient_show', {'id': ingredient.id}) }}">show</a>
                     <a href="{{ path('app_ingredient_edit', {'id': ingredient.id}) }}">edit</a>
                 </td>
             </tr>
