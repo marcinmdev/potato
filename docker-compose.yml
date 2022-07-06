@@ -2,7 +2,6 @@ services:
   http:
     container_name: potato-http
     image: nginx:stable-alpine
-    user: ${UID}:${GID}
     ports:
         - "80:80"
         - "443:443"
