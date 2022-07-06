@@ -41,4 +41,11 @@ docker compose start
 dxp
 #grml zsh shell inside docker php
 #use <ctr-r> and thanks to fzf we have access to very useful history browser
+
+#code check
+composer code-validator
+
+#test - run outside docker
+dxpt
+#
 ```
