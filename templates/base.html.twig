@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link href="{{ asset('build/style.css') }}" rel="stylesheet"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
-        <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link href="{{ asset('build/style.css') }}" rel="stylesheet"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
+</head>
+<body>
+{% block body %}
+    <div class="columns m-1">
+        <nav class="column is-2">
+            {% block sidebar %}
+                <aside class="menu">
+                    <p class="menu-label">
+                        General
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="{{ path('main') }}">Home</a></li>
+                        <li><a>Customers</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        Administration
+                    </p>
+                    <ul class="menu-list">
+                        <li><a>Team Settings</a></li>
+                        <li>
+                            <a class="is-active">Manage Your Team</a>
+                            <ul>
+                                <li><a>Members</a></li>
+                                <li><a>Plugins</a></li>
+                                <li><a>Add a member</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="menu-label">
+                        Transactions
+                    </p>
+                    <ul class="menu-list">
+                        <li><a>Payments</a></li>
+                        <li><a>Transfers</a></li>
+                        <li><a>Balance</a></li>
+                    </ul>
+                </aside>
+            {% endblock %}
+        </nav>
+        <div class="column">
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
 </html>
