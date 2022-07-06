@@ -81,7 +81,7 @@ class IngredientController extends AbstractController
     #[Route('/{id}', name: 'app_ingredient_delete', methods: ['DELETE'])]
     public function delete(Request $request, Ingredient $ingredient, IngredientRepository $ingredientRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$ingredient->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$ingredient->getId(), (string)$request->request->get('_token'))) {
             $ingredientRepository->remove($ingredient);
         }
 

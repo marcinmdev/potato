@@ -14,10 +14,13 @@ class Ingredient
     private $id;
 
     #[ORM\Column(type: 'text')]
-    private ?string $name;
+    private string $name;
 
     #[ORM\Column(type: 'integer')]
-    private ?string $price;
+    private int $price;
+
+    #[ORM\Column(type: 'integer')]
+    private int $weight;
 
     public function getId(): ?int
     {
@@ -44,6 +47,18 @@ class Ingredient
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(int $weight): self
+    {
+        $this->weight = $weight;
 
         return $this;
     }
