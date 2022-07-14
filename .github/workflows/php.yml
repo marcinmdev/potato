@@ -69,4 +69,4 @@ jobs:
           php bin/console cache:warmup --env=test
           composer code-validator
         env:
-          DATABASE_URL: postgres://potato:potato@127.0.0.1:${{ job.services.postgres.ports[5432] }}/potato?serverVersion=14&charset=utf8
+          DATABASE_URL: postgres://potato:potato@127.0.0.1:${{ job.services.postgres.ports[5432] }}/potato_test?serverVersion=14&charset=utf8
