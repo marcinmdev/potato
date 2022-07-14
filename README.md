@@ -1,4 +1,7 @@
 🥔
+
+[![Testing Symfony with PostgreSQL](https://github.com/marcinmdev/potato/actions/workflows/php.yml/badge.svg)](https://github.com/marcinmdev/potato/actions/workflows/php.yml)
+
 ## DESCRIPTION
 Example Symfony project with tested and simple code.
 
