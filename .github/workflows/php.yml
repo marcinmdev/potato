@@ -57,9 +57,9 @@ jobs:
 
       - name: Run Migration and fixtures
         run: |
-          php bin/console doctrine:schema:update --force || echo "No migrations found or schema update failed"
-          php bin/console doctrine:migrations:migrate || echo "No migrations found or migration failed"
-          php bin/console doctrine:fixtures:load --append || echo "Fixtures error"
+          php bin/console doctrine:schema:drop --force --full-database -n || echo "Schema drop failed"
+          php bin/console doctrine:migrations:migrate -n || echo "No migrations found or migration failed"
+          php bin/console doctrine:fixtures:load --append -n || echo "Fixtures error"
         env:
           DATABASE_URL: postgres://potato:potato@127.0.0.1:${{ job.services.postgres.ports[5432] }}/potato_test?serverVersion=14&charset=utf8
 
