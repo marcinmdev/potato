@@ -8,7 +8,7 @@ jobs:
 
     # Docs: https://docs.github.com/en/actions/using-containerized-services
     services:
-      postgres:
+      potato-db:
         image: postgres:latest
         env:
           POSTGRES_USER: potato
@@ -60,7 +60,7 @@ jobs:
           php bin/console doctrine:schema:update --force || echo "No migrations found or schema update failed"
           php bin/console doctrine:migrations:migrate || echo "No migrations found or migration failed"
         env:
-          DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8
+          DATABASE_URL: postgres://potato:potato@potato-db:${{ job.services.postgres.ports[5432] }}/potato_test?charset=UTF-8
 
       - name: Install PHPUnit
         run: simple-phpunit install
