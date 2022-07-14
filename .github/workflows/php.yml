@@ -65,8 +65,8 @@ jobs:
 #cache clear + cache clear test
       - name: Code validator
         run: |
-          php bin/console cache:clear
-          php bin/console cache:clear --env=TEST
+          php bin/console cache:warmup
+          php bin/console cache:warmup --env=test
           composer code-validator
         env:
           DATABASE_URL: postgres://potato:potato@127.0.0.1:${{ job.services.postgres.ports[5432] }}/potato_test?serverVersion=14&charset=utf8
